@@ -1,15 +1,19 @@
 class Molecule {
-    constructor(){
+    constructor(_index){
         this.position = createVector(random(width),random(height));
-        this.velocity = createVector(random(-2,2),random(-2,2));
+        this.velocity = createVector(random(-2,5),random(-2,5));
         this.radius = random(minRadius,maxRadius);
+        this.index = _index;
+        this.r = 255;
+        this.g = 0;
+        this.b = 0;
     }
     
     
     render() {
         stroke(0,0,200);
         strokeWeight(1)
-        fill(255,0,0);
+        fill(this.r,this.g,this.b);
         push()
             translate(this.position.x,this.position.y)
             ellipse(0,0,this.radius*2,this.radius*2);
@@ -19,6 +23,8 @@ class Molecule {
     step() {
         this.position.add(this.velocity);
     }
+    
+    
     
     checkEdges(){
         
@@ -31,6 +37,6 @@ class Molecule {
         }
     }
     
-    
+    // -------->java inheritence es6
     
 }
